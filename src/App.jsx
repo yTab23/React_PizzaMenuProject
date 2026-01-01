@@ -48,39 +48,56 @@ const pizzaData = [
 
 function App() {
   return (
-    <>
-      <div>
-        <Header />
-        <Menu />
-        <Footer />
-      </div>
-    </>
+    <div className="container">
+      <Header />
+      <Menu />
+      <Footer />
+    </div>
   );
 }
 
 function Header() {
-  return <h1>Fast React Pizza</h1>;
+  //const style = { color: "red", fontSize: "48px", textTransform: "uppercase" };
+  const style = {};
+
+  return (
+    <header className="header">
+      <h1 style={style}>Fast React Pizza Co.</h1>
+    </header>
+  );
 }
 function Menu() {
   return (
-    <div>
+    <main className="menu">
       <h2>Our menu</h2>
       <Pizza />
       <Pizza />
       <Pizza />
       <Pizza />
-    </div>
+    </main>
   );
 }
 function Footer() {
-  return (
-    <footer>{new Date().toLocaleTimeString()} - We're currently open</footer>
-  );
+  const hour = new Date().getHours();
+  const openHour = 8;
+  const closeHour = 22;
+  const isOpen = hour >= openHour && hour <= closeHour;
+  let openingText = "We're currently open!";
+
+  if (isOpen) openingText = "We're currently open!";
+  else openingText = "Sorry we're closed";
+
+  if (isOpen)
+    return (
+      <footer className="footer">
+        {new Date().toLocaleTimeString()} - {openingText}
+      </footer>
+    );
 }
 
 function Pizza() {
   return (
-    <div>
+    <div className="container">
       <img src="../assets/pizzas/focaccia.jpg" />
       <h2>Pizza</h2>
       <p>Spinach salamino</p>
