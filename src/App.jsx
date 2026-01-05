@@ -96,10 +96,7 @@ function Footer() {
   return (
     <footer className="footer">
       {isOpen ? (
-        <div className="order">
-          <p>We're open until {closeHour}:00. Come visit us or order online</p>
-          <button className="btn">Order</button>
-        </div>
+
       ) : (
         <p>
           We're happy to welcome you between {openHour}:00 and {closeHour}:00.
@@ -122,5 +119,12 @@ function Pizza(props) {
       </div>
     </li>
   );
+}
+
+function Order() {
+  return(        <div className="order">
+          <p>We're open until {closeHour}:00. Come visit us or order online</p>
+          <button className="btn">Order</button>
+        </div>)
 }
 export default App;
